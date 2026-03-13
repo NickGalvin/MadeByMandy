@@ -57,6 +57,13 @@ main{
     background:
         radial-gradient(circle at 20% 20%, rgba(255,255,255,.6), transparent 40%),
         radial-gradient(circle at 80% 80%, rgba(0,0,0,.05), transparent 40%),
+        repeating-linear-gradient(
+            45deg,
+            rgba(0,0,0,.02),
+            rgba(0,0,0,.02) 2px,
+            transparent 2px,
+            transparent 4px
+        ),
         linear-gradient(#f8efd9,#efe2c4);
 
     box-shadow:
@@ -162,6 +169,18 @@ Order Button
 /* =========================
 Cookies
 ========================= */
+.cookie-section-description p{
+    margin:14px 14px 18px;
+    font-size:16px;
+    line-height:1.35;
+
+    /* modern balanced wrapping */
+    text-wrap: balance;
+
+    /* fallbacks */
+    overflow-wrap: break-word;
+    word-break: normal;
+}
 
 .cookie-grid{
     display:flex;
@@ -353,15 +372,15 @@ alt="Order on Facebook Marketplace">
 
 <div class="cookie-grid">
 
-<div class="cookie-card">
+    <div class="cookie-card">
 
-<img
-src="https://imgur.com/Ob90RLH.jpg"
-alt="Fresh baked sourdough chocolate chip cookies">
+    <img
+    src="https://imgur.com/Ob90RLH.jpg"
+    alt="Fresh baked sourdough chocolate chip cookies">
 
-<h3>Sourdough Chocolate Chip</h3>
+    <h3>Sourdough Chocolate Chip</h3>
 
-</div>
+    </div>
 
 </div>
 
@@ -394,7 +413,7 @@ Customer Reviews
 
 <img
 src="https://i.imgur.com/SV2OSMA.png"
-alt="Customer reviews showing positive feedback about Made by Mandy cookies">
+alt="Customer reviews showing positive feedback about Made by Mandy cookies. Words can't describe how good these cookies are, 1000000/10 would recommend.">
 
 </div>
 
@@ -405,7 +424,9 @@ alt="Customer reviews showing positive feedback about Made by Mandy cookies">
 <footer>
 
 <div>
-Made by Mandy MN © <span id="year"></span> • Registered cottage baker • Fresh baked to order
+<p>Made by Mandy MN © <span id="year"></span> </p>
+
+<p>Registered cottage baker • Fresh baked to order</p>
 </div>
 
 </footer>
