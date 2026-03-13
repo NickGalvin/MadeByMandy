@@ -48,21 +48,48 @@ main{
 
 /* floating card sections */
 .section-card{
+    position:relative;
     border-radius:14px;
-    padding:28px 22px;
-    margin:28px auto;
+    padding:30px 22px;
+    margin:30px auto;
     max-width:650px;
 
-    /* parchment color */
     background:
         radial-gradient(circle at 20% 20%, rgba(255,255,255,.6), transparent 40%),
         radial-gradient(circle at 80% 80%, rgba(0,0,0,.05), transparent 40%),
         linear-gradient(#f8efd9,#efe2c4);
 
-    /* paper edge depth */
     box-shadow:
         inset 0 0 30px rgba(0,0,0,0.08),
-        0 12px 28px rgba(0,0,0,0.18);
+        0 14px 30px rgba(0,0,0,0.20);
+}
+
+.section-card::before,
+.section-card::after{
+    content:"";
+    position:absolute;
+    left:0;
+    width:100%;
+    height:12px;
+    pointer-events:none;
+}
+
+.section-card::before{
+    top:-6px;
+
+    background:
+        radial-gradient(circle at 10px 10px, transparent 8px, #efe2c4 9px) repeat-x;
+
+    background-size:22px 14px;
+}
+
+.section-card::after{
+    bottom:-6px;
+
+    background:
+        radial-gradient(circle at 10px -2px, transparent 8px, #efe2c4 9px) repeat-x;
+
+    background-size:22px 14px;
 }
 
 /* =========================
