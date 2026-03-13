@@ -152,17 +152,48 @@ Menu
 /* =========================
 Order Button
 ========================= */
-
 .order-now-container{
     text-align:center;
-    margin-top:14px;
+    margin-top:18px;
 }
 
-.order-now-container img{
-    max-height:52px;
+.order-button{
+    display:inline-block;
+
+    padding:14px 26px;
+
+    font-size:18px;
+    font-weight:700;
+    letter-spacing:.02em;
+
+    color:white;
+    text-decoration:none;
+
+    background:#1877f2;
+
+    border-radius:8px;
+
+    box-shadow:
+        0 6px 14px rgba(0,0,0,.30),
+        0 2px 4px rgba(0,0,0,.15);
+
+    transition:
+        transform .15s ease,
+        box-shadow .15s ease,
+        background .15s ease;
 }
 
-.order-now-container a:focus{
+.order-button:hover{
+    background:#0f63d6;
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 10px 22px rgba(0,0,0,.35),
+        0 4px 8px rgba(0,0,0,.18);
+}
+
+.order-button:focus{
     outline:3px solid var(--brand-purple);
 }
 
@@ -304,6 +335,41 @@ header h1{
 
 }
 
+.footer-follow {
+    text-align: center;
+    font-size: 0.95rem;
+    color: black;
+}
+
+.facebook-tag {
+    display: inline-block;
+    margin-left: 4px;
+    padding: 0.2rem 0.5rem;
+
+    font-size: 0.85rem;
+    font-weight: 600;
+
+    color: white;
+    text-decoration: none;
+
+    background: #1877f2;
+    border-radius: 4px;
+
+    box-shadow: 
+        0 2px 6px rgba(0,0,0,0.35),
+        0 0 0 1px rgba(0,0,0,0.08);
+
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.facebook-tag:hover {
+    transform: translateY(-1px);
+    box-shadow: 
+        0 4px 10px rgba(0,0,0,0.45),
+        0 0 0 1px rgba(0,0,0,0.12);
+}
+
+
 </style>
 </head>
 
@@ -353,15 +419,15 @@ Cookie Menu
 
 <div class="order-now-container">
 
-<p><strong>Order Now on Facebook</strong></p>
 
 <a
 href="https://www.facebook.com/marketplace/item/1448606079940652"
+class="order-button"
+target="_blank"
+rel="noopener"
 aria-label="Order Made by Mandy cookies on Facebook Marketplace">
 
-<img
-src="https://cloudpng.com/images/all_img/1751194659_facebook-logo-transparent-png.png"
-alt="Order on Facebook Marketplace">
+Order Cookies Now
 
 </a>
 
@@ -426,7 +492,18 @@ alt="Customer reviews showing positive feedback about Made by Mandy cookies. Wor
 <p>Made by Mandy MN © <span id="year"></span> </p>
 
 <p>Registered cottage baker • Fresh baked to order</p>
-<p>Follow me on Facebook at <a href="https://facebook.com/MadeByMandyMinnesota">Facebook.com/MadeByMandyMinnesota</a></p>
+<div class="footer-follow">
+    Follow <strong>Made by Mandy</strong> on 
+    <a href="https://facebook.com/MadeByMandyMinnesota"
+       target="_blank"
+       rel="noopener"
+       class="facebook-tag">
+       Facebook
+    </a>
+</div>
+
+
+
 </div>
 
 </footer>
