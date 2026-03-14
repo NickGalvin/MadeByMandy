@@ -9,6 +9,7 @@
 <meta property="og:image" content="https://i.imgur.com/Ob90RLH.jpeg">
 
 <title>Made by Mandy Cookies</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 
 <style>
 
@@ -111,8 +112,9 @@ header{
 }
 
 header h1{
+    font-family: 'Pacifico', cursive;
     margin:0;
-    font-size:34px;
+    font-size: 50px; /* responsive adjustments can be kept */
     color:var(--brand-purple);
 }
 
@@ -465,70 +467,73 @@ header h1{
     font-size:12.5px;
 
     color:#444;
-}
-.crypto-tipjar{
-
+}.crypto-tipjar{
     margin-top:18px;
-
     display:flex;
     justify-content:center;
     align-items:center;
     flex-wrap:wrap;
-
     gap:8px 12px;
-
     font-size:12.5px;
 }
 
 .tipjar-label{
-
     font-weight:600;
     color:#444;
     opacity:.9;
 }
 
-/* buttons */
-
+/* General buttons */
 .tip-btn{
-
     font-size:12px;
     font-weight:700;
-
     padding:5px 10px;
-
     border-radius:6px;
-
     border:1px solid rgba(0,0,0,.15);
-
     background:#ffffff;
-
     color:#222;
-
     cursor:pointer;
-
-    transition:
-        transform .12s ease,
-        box-shadow .12s ease,
-        background .12s ease;
+    transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
 }
 
 .tip-btn:hover{
-
     transform:translateY(-1px);
-
     box-shadow:0 3px 8px rgba(0,0,0,.25);
-
     background:#fafafa;
 }
 
-/* subtle coin hints */
+/* Coin hints */
+.tip-btn.btc{ border-color:#f7931a55; }
+.tip-btn.eth{ border-color:#627eea55; }
 
-.tip-btn.btc{
-    border-color:#f7931a55;
+/* Direct donate buttons hidden by default */
+.tip-btn.direct-donate{ display:none; }
+
+/* Show only on mobile/touchscreen devices */
+@media (hover: none) and (pointer: coarse){
+    .tip-btn.direct-donate{ display:inline-block; }
 }
 
-.tip-btn.eth{
-    border-color:#627eea55;
+/* Toast popup */
+.crypto-toast{
+    position:fixed;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    background:rgba(0,0,0,0.85);
+    color:white;
+    padding:8px 16px;
+    border-radius:6px;
+    font-size:13px;
+    font-weight:600;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity 0.3s ease, transform 0.3s ease;
+    z-index:9999;
+}
+.crypto-toast.show{
+    opacity:1;
+    transform:translateX(-50%) translateY(-5px);
 }
 </style>
 </head>
@@ -670,23 +675,63 @@ alt="Customer reviews showing positive feedback about Made by Mandy cookies. Wor
        class="facebook-tag">
        Facebook
     </a>
-<div class="crypto-tipjar">
+    <div class="crypto-tipjar">
 
-    <span class="tipjar-label">Crypto tip jar</span>
+        <span class="tipjar-label">Crypto tip jar</span>
+    
+        <!-- Copy buttons -->
+        <button class="tip-btn btc" data-address="bc1qcmtu4t3evduw6dcj8x75xmk7ma6dkg67zmh3gf">
+            Copy BTC Address
+        </button>
+    
+        <button class="tip-btn eth" data-address="0x19Bd0A22FF07d202A7f5bcc9CdEB554C5e709c5b">
+            Copy ETH Address
+        </button>
+    
+        <!-- Optional direct donate buttons -->
+        <a href="bitcoin:bc1qcmtu4t3evduw6dcj8x75xmk7ma6dkg67zmh3gf"
+           class="tip-btn direct-donate btc-donate">
+            Donate BTC
+        </a>
+    
+        <a href="ethereum:0x19Bd0A22FF07d202A7f5bcc9CdEB554C5e709c5b"
+           class="tip-btn direct-donate eth-donate">
+            Donate ETH
+        </a>
+    
+    </div>
+    
+    <!-- Toast popup container -->
+    <div id="crypto-toast" class="crypto-toast">Copied to clipboard!</div>
 
-    <button class="tip-btn btc" data-address="bc1qcmtu4t3evduw6dcj8x75xmk7ma6dkg67zmh3gf">
-        Copy BTC Address
-    </button>
-
-    <button class="tip-btn eth" data-address="0x19Bd0A22FF07d202A7f5bcc9CdEB554C5e709c5b">
-        Copy ETH Address
-    </button>
-
-</div>
+<!-- Toast popup container -->
+<div id="crypto-toast" class="crypto-toast">Copied to clipboard!</div>
 </footer>
 
 <script>
 document.getElementById("year").textContent = new Date().getFullYear();
+
+const toast = document.getElementById("crypto-toast");
+
+// Copy buttons with toast
+document.querySelectorAll(".tip-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+
+        // Only copy addresses from buttons with data-address
+        if(btn.dataset.address){
+            navigator.clipboard.writeText(btn.dataset.address);
+            toast.textContent = "Copied to clipboard!";
+            toast.classList.add("show");
+            setTimeout(() => toast.classList.remove("show"), 1500);
+        }
+    });
+});
+
+// Optional: show donate buttons on mobile only (redundant if using CSS media query)
+const isMobile = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+if(!isMobile){
+    document.querySelectorAll(".tip-btn.direct-donate").forEach(btn => btn.style.display="none");
+}
 </script>
 
 </body>
