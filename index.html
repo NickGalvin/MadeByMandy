@@ -1,15 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<title>Made by Mandy Cookies | Fresh Homemade Cookies in South Saint Paul MN</title>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- SEO -->
+<meta name="description" content="Made by Mandy MN – Fresh homemade cookies baked to order in South Saint Paul, Minnesota. Small batch sourdough cookies with soft centers and crisp edges.">
+<meta name="keywords" content="cookies South Saint Paul, homemade cookies MN, sourdough cookies, Made by Mandy">
+<meta name="author" content="Made by Mandy MN">
+
+<!-- Open Graph (Facebook / Messenger) -->
+<meta property="og:type" content="website">
 <meta property="og:title" content="Made by Mandy Cookies">
-<meta property="og:description" content="Fresh baked cookies from South Saint Paul">
-<meta property="og:image" content="https://i.imgur.com/Ob90RLH.jpeg">
+<meta property="og:description" content="Fresh baked cookies made from scratch in South Saint Paul, MN. Order today!">
+<meta property="og:url" content="https://madebymandymn.com">
+<meta property="og:site_name" content="Made by Mandy">
 
-<title>Made by Mandy Cookies</title>
+<meta property="og:image" content="https://i.imgur.com/Ob90RLH.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Made by Mandy Cookies">
+<meta name="twitter:description" content="Fresh baked cookies from South Saint Paul, MN. Small batch and made with care.">
+<meta name="twitter:image" content="https://i.imgur.com/Ob90RLH.jpg">
+
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+<!-- Theme color for mobile browsers -->
+<meta name="theme-color" content="#9b6fd3">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Bakery",
+  "name": "Made by Mandy",
+  "description": "Small batch homemade cookies baked to order in South Saint Paul, Minnesota.",
+  "areaServed": "South Saint Paul, Minnesota",
+  "url": "https://madebymandymn.com",
+  "sameAs": [
+    "https://facebook.com/MadeByMandyMinnesota"
+  ]
+}
+</script>
 <style>
 
 /* =========================
@@ -113,6 +155,7 @@ header{
 header h1{
     margin:0;
     font-size:34px;
+    font-family: 'Pacifico', cursive;
     color:var(--brand-purple);
 }
 
@@ -132,6 +175,19 @@ Menu
 
 .menu-header h2{
     margin:0;
+    font-family: 'Pacifico', cursive;
+    font-size: 2.1rem;
+    color: var(--brand-purple);
+    letter-spacing: 0.02em;
+}
+
+section.section-card h2 {
+    margin: 0 0 18px;
+    font-family: 'Pacifico', cursive;
+    font-size: 2.1rem;
+    color: var(--brand-purple);
+    letter-spacing: 0.02em;
+    text-align: center;
 }
 
 /* pricing */
@@ -284,15 +340,45 @@ Reviews
     text-align:center;
 }
 
-.reviews img{
-    width:100%;
-    max-width:850px;
-    border-radius:8px;
+.reviews-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    max-width: 900px;
+    margin: 0 auto;
+}
 
-    border:1px solid rgba(0,0,0,0.12);
+.review-card{
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 12px;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.18), 0 2px 4px rgba(0,0,0,0.08);
+    transition: transform .15s ease, box-shadow .15s ease;
+}
 
-    box-shadow:
-        0 8px 20px rgba(0,0,0,0.18);
+.review-card:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 12px 26px rgba(0,0,0,0.22), 0 4px 8px rgba(0,0,0,0.12);
+}
+
+.review-rating{
+    color: #ffd700;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.review-description{
+    margin: 0;
+    line-height: 1.4;
+    font-size: 14px;
+
+    /* modern balanced wrapping */
+    text-wrap: balance;
+
+    /* fallbacks */
+    overflow-wrap: break-word;
+    word-break: normal;
 }
 
 /* =========================
@@ -301,9 +387,13 @@ Footer
 
 footer{
     text-align:center;
-    padding:26px;
+    padding:40px 26px;
     font-size:14px;
     color:#444;
+    background: linear-gradient(135deg, #f8f6ff 0%, #f0edff 100%);
+    border-top: 2px solid rgba(155, 111, 211, 0.2);
+    margin-top: 40px;
+    box-shadow: inset 0 4px 8px rgba(0,0,0,0.05);
 }
 
 /* =========================
@@ -365,11 +455,22 @@ header h1{
     transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.facebook-tag:hover {
+.facebook-reviews-link {
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    background: #1877f2;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.35), 0 0 0 1px rgba(0,0,0,0.08);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.facebook-reviews-link:hover {
     transform: translateY(-1px);
-    box-shadow: 
-        0 4px 10px rgba(0,0,0,0.45),
-        0 0 0 1px rgba(0,0,0,0.12);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.45), 0 0 0 1px rgba(0,0,0,0.12);
 }
 
 .order-card{
@@ -414,42 +515,6 @@ header h1{
     font-weight:700;
 }
 
-/* button */
-
-.order-button{
-
-    display:inline-block;
-
-    padding:10px 18px;
-
-    font-size:16px;
-    font-weight:700;
-
-    color:#fff;
-    text-decoration:none;
-
-    background:#1877f2;
-
-    border-radius:7px;
-
-    box-shadow:
-        0 5px 12px rgba(0,0,0,.25),
-        0 2px 3px rgba(0,0,0,.12);
-
-    transition:
-        transform .15s ease,
-        box-shadow .15s ease;
-}
-
-.order-button:hover{
-
-    transform:translateY(-1px);
-
-    box-shadow:
-        0 8px 16px rgba(0,0,0,.30),
-        0 3px 5px rgba(0,0,0,.15);
-}
-
 /* logistics */
 
 .order-logistics{
@@ -466,70 +531,6 @@ header h1{
 
     color:#444;
 }
-.crypto-tipjar{
-
-    margin-top:18px;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-wrap:wrap;
-
-    gap:8px 12px;
-
-    font-size:12.5px;
-}
-
-.tipjar-label{
-
-    font-weight:600;
-    color:#444;
-    opacity:.9;
-}
-
-/* buttons */
-
-.tip-btn{
-
-    font-size:12px;
-    font-weight:700;
-
-    padding:5px 10px;
-
-    border-radius:6px;
-
-    border:1px solid rgba(0,0,0,.15);
-
-    background:#ffffff;
-
-    color:#222;
-
-    cursor:pointer;
-
-    transition:
-        transform .12s ease,
-        box-shadow .12s ease,
-        background .12s ease;
-}
-
-.tip-btn:hover{
-
-    transform:translateY(-1px);
-
-    box-shadow:0 3px 8px rgba(0,0,0,.25);
-
-    background:#fafafa;
-}
-
-/* subtle coin hints */
-
-.tip-btn.btc{
-    border-color:#f7931a55;
-}
-
-.tip-btn.eth{
-    border-color:#627eea55;
-}
 </style>
 </head>
 
@@ -537,7 +538,7 @@ header h1{
 
 <header class="section-card">
 
-<h1>🍪Made by Mandy</h1>
+<h1>Made by Mandy</h1>
 
 <p>Home baker based in South Saint Paul, MN ✨</p>
 <p>Creating delicious sourdough recipes and classic baked goods made from scratch.</p>
@@ -640,15 +641,53 @@ Reviews
 
 <section class="section-card" aria-labelledby="reviews-heading">
 
-<h2 id="reviews-heading" style="text-align:center;">
+<h2 id="reviews-heading">
 Customer Reviews
 </h2>
 
 <div class="reviews">
 
-<img
-src="https://i.imgur.com/SV2OSMA.png"
-alt="Customer reviews showing positive feedback about Made by Mandy cookies. Words can't describe how good these cookies are, 1000000/10 would recommend.">
+<div style="text-align: center; margin-bottom: 20px;">
+    <a href="https://www.facebook.com/marketplace/profile/1396247507/"
+       target="_blank"
+       rel="noopener"
+       class="facebook-reviews-link">
+        View All Reviews on Facebook
+    </a>
+</div>
+
+<div class="reviews-grid">
+
+    <div class="review-card">
+        <div class="review-rating">★★★★★</div>
+        <p class="review-description">Words can't describe how good these cookies are, 100000/10 would recommend </p>
+    </div>
+
+    <div class="review-card">
+        <div class="review-rating">★★★★★</div>
+        <p class="review-description">Mandy’s homemade sourdough cookies are amazing! She now has a customer for life. </p>
+    </div>
+
+    <div class="review-card">
+        <div class="review-rating">★★★★★</div>
+        <p class="review-description">Hands down the best chocolate chip cookie I’ve ever had. So soft, perfectly chewy, and the chip-to-dough ratio is absolutely spot on. Every bite is perfect, thank you Mandy!</p>
+    </div>
+
+    <div class="review-card">
+        <div class="review-rating">★★★★★</div>
+        <p class="review-description">Wonderful transaction! Cookies were amazing and seller definitely was flexible for me. Will buy from again in a New York second! Highly recommended!</p>
+    </div>
+
+    <div class="review-card">
+        <div class="review-rating">★★★★★</div>
+        <p class="review-description">Mandy's communication is top-tier, but her cookies are out of this world. I highly recommend!! They look exactly like the photo!</p>
+    </div>
+    
+    <div class="review-card">
+        <div class="review-rating">★★★★★</div>
+        <p class="review-description">These are delicious!</p>
+    </div>
+</div>
 
 </div>
 
@@ -670,18 +709,6 @@ alt="Customer reviews showing positive feedback about Made by Mandy cookies. Wor
        class="facebook-tag">
        Facebook
     </a>
-<div class="crypto-tipjar">
-
-    <span class="tipjar-label">Crypto tip jar</span>
-
-    <button class="tip-btn btc" data-address="bc1qcmtu4t3evduw6dcj8x75xmk7ma6dkg67zmh3gf">
-        Copy BTC Address
-    </button>
-
-    <button class="tip-btn eth" data-address="0x19Bd0A22FF07d202A7f5bcc9CdEB554C5e709c5b">
-        Copy ETH Address
-    </button>
-
 </div>
 </footer>
 
