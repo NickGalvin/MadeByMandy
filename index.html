@@ -153,6 +153,7 @@ header{
 }
 
 header h1{
+    font-family: 'Pacifico', cursive;
     margin:0;
     font-size:34px;
     font-family: 'Pacifico', cursive;
@@ -476,7 +477,7 @@ header h1{
 .order-card{
     background:linear-gradient(#fffdf7,#f4edff);
 
-    max-width:340px;
+    max-width:300px;
     margin:16px auto;
 
     padding:14px 16px;
@@ -538,6 +539,7 @@ header h1{
 
 <header class="section-card">
 
+<h1>Made by Mandy</h1>
 <h1>Made by Mandy</h1>
 
 <p>Home baker based in South Saint Paul, MN ✨</p>
@@ -714,6 +716,28 @@ Customer Reviews
 
 <script>
 document.getElementById("year").textContent = new Date().getFullYear();
+
+const toast = document.getElementById("crypto-toast");
+
+// Copy buttons with toast
+document.querySelectorAll(".tip-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+
+        // Only copy addresses from buttons with data-address
+        if(btn.dataset.address){
+            navigator.clipboard.writeText(btn.dataset.address);
+            toast.textContent = "Copied to clipboard!";
+            toast.classList.add("show");
+            setTimeout(() => toast.classList.remove("show"), 1500);
+        }
+    });
+});
+
+// Optional: show donate buttons on mobile only (redundant if using CSS media query)
+const isMobile = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+if(!isMobile){
+    document.querySelectorAll(".tip-btn.direct-donate").forEach(btn => btn.style.display="none");
+}
 </script>
 
 </body>
