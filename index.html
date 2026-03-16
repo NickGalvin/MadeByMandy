@@ -2,13 +2,41 @@
 <html lang="en">
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta property="og:title" content="Made by Mandy Cookies">
-<meta property="og:description" content="Fresh baked cookies from South Saint Paul">
-<meta property="og:image" content="https://i.imgur.com/Ob90RLH.jpeg">
+<title>Made by Mandy MN | Fresh Homemade Sourdough Cookies and Baked Goods in South Saint Paul MN</title>
 
-<title>Made by Mandy Cookies</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- SEO -->
+<meta name="description" content="Made by Mandy MN – Fresh homemade cookies baked to order in South Saint Paul, Minnesota. Small batch sourdough cookies with soft centers and crisp edges.">
+<meta name="author" content="Made by Mandy MN">
+
+<!-- Open Graph (Facebook / Messenger) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Made by Mandy Sourdough Cookies">
+<meta property="og:description" content="Fresh baked sourdough cookies made from scratch in South Saint Paul, MN. Small batch and crafted with care.">
+<meta property="og:url" content="https://madebymandymn.com">
+<meta property="og:site_name" content="Made by Mandy">
+
+<meta property="og:image" content="https://i.imgur.com/Ob90RLH.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Made by Mandy Cookies">
+<meta name="twitter:description" content="Fresh baked sourdough cookies from scratch in South Saint Paul, MN. Small batch and crafted with care.">
+<meta name="twitter:image" content="https://i.imgur.com/Ob90RLH.jpg">
+
+<!-- SEO extras -->
+<link rel="canonical" href="https://madebymandymn.com/">
+
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+
+<!-- Theme color for mobile browsers -->
+<meta name="theme-color" content="#9b6fd3">
+
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 
 <style>
@@ -29,6 +57,89 @@ Global
 
 *{
     box-sizing:border-box;
+}
+
+/* Skip link for keyboard users */
+.skip-link {
+    position: absolute;
+    left: -999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+.skip-link:focus {
+    left: 1rem;
+    top: 1rem;
+    width: auto;
+    height: auto;
+    padding: 0.5rem 0.75rem;
+    background: rgba(255,255,255,0.94);
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 6px;
+    z-index: 9999;
+}
+
+/* Top navigation (anchor links) */
+.top-nav {
+    text-align: center;
+    margin: 0 auto 24px;
+}
+
+.top-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: inline-flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.top-nav-list a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(0,0,0,0.12);
+    background: rgba(255,255,255,0.82);
+    transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.top-nav-list a:hover,
+.top-nav-list a:focus-visible {
+    background: rgba(155,111,211,0.12);
+    transform: translateY(-1px);
+}
+
+/* Fixed mobile CTA */
+.fixed-order-button {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 999;
+    display: none;
+    text-align: center;
+    box-shadow:
+        0 8px 18px rgba(0,0,0,.25),
+        0 2px 4px rgba(0,0,0,.12);
+
+    /* keep the button compact on small screens */
+    white-space: nowrap;
+    max-width: 240px;
+    min-width: 160px;
+}
+
+@media (max-width: 820px) {
+    .fixed-order-button {
+        display: inline-block;
+    }
+
+    /* ensure page content isn't hidden behind the fixed CTA */
+    main {
+        padding-bottom: 90px;
+    }
 }
 
 body{
@@ -219,14 +330,18 @@ Cookies
 }
 
 .cookie-grid{
-    display:flex;
+    display:grid;   
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
     justify-content: center;
-    align-items: center;
+    justify-items: center;
     margin: auto;
     max-width:900px;
 }
 
 .cookie-card{
+    width: 100%;
+    max-width: 320px;
     background:#ffffff;
     border-radius:10px;
     overflow:hidden;
@@ -314,10 +429,6 @@ Tablet
 
 @media (min-width:600px){
 
-.cookie-grid{
-    grid-template-columns:repeat(2,1fr);
-}
-
 header h1{
     font-size:42px;
 }
@@ -329,10 +440,6 @@ Desktop
 ========================= */
 
 @media (min-width:900px){
-
-.cookie-grid{
-    grid-template-columns:repeat(3,1fr);
-}
 
 header h1{
     font-size:50px;
@@ -467,78 +574,22 @@ header h1{
     font-size:12.5px;
 
     color:#444;
-}.crypto-tipjar{
-    margin-top:18px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:8px 12px;
-    font-size:12.5px;
-}
-
-.tipjar-label{
-    font-weight:600;
-    color:#444;
-    opacity:.9;
-}
-
-/* General buttons */
-.tip-btn{
-    font-size:12px;
-    font-weight:700;
-    padding:5px 10px;
-    border-radius:6px;
-    border:1px solid rgba(0,0,0,.15);
-    background:#ffffff;
-    color:#222;
-    cursor:pointer;
-    transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
-}
-
-.tip-btn:hover{
-    transform:translateY(-1px);
-    box-shadow:0 3px 8px rgba(0,0,0,.25);
-    background:#fafafa;
-}
-
-/* Coin hints */
-.tip-btn.btc{ border-color:#f7931a55; }
-.tip-btn.eth{ border-color:#627eea55; }
-
-/* Direct donate buttons hidden by default */
-.tip-btn.direct-donate{ display:none; }
-
-/* Show only on mobile/touchscreen devices */
-@media (hover: none) and (pointer: coarse){
-    .tip-btn.direct-donate{ display:inline-block; }
-}
-
-/* Toast popup */
-.crypto-toast{
-    position:fixed;
-    bottom:20px;
-    left:50%;
-    transform:translateX(-50%);
-    background:rgba(0,0,0,0.85);
-    color:white;
-    padding:8px 16px;
-    border-radius:6px;
-    font-size:13px;
-    font-weight:600;
-    opacity:0;
-    pointer-events:none;
-    transition:opacity 0.3s ease, transform 0.3s ease;
-    z-index:9999;
-}
-.crypto-toast.show{
-    opacity:1;
-    transform:translateX(-50%) translateY(-5px);
 }
 </style>
 </head>
 
 <body>
+
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<nav class="top-nav" aria-label="Primary">
+  <ul class="top-nav-list">
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#ordering">Ordering</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+</nav>
 
 <header class="section-card">
 
@@ -570,13 +621,13 @@ header h1{
 
 </div>
 </header>
-<main>
+<main id="main-content">
 
 <!-- ======================
 Cookie Menu
 ======================= -->
 
-<section class="section-card" aria-labelledby="menu-heading">
+<section id="menu" class="section-card" aria-labelledby="menu-heading">
 
 <div class="menu-header">
 
@@ -606,16 +657,26 @@ Cookie Menu
 
 <h3>Coming Soon</h3>
 
-<ul>
-<li>Chocolate Chocolate Chip</li>
-<li>Sugar</li>
-<li>M&M</li>
-<li>Peanut Butter</li>
+<ul class="coming-soon-list" aria-label="List of cookie flavors coming soon">
+<li class="coming-soon-list-item" aria-label="Chocolate Chocolate Chip">Chocolate Chocolate Chip</li>
+<li class="coming-soon-list-item" aria-label="Sugar">Sugar</li>
+<li class="coming-soon-list-item" aria-label="M&M">M&M</li>
+<li class="coming-soon-list-item" aria-label="Peanut Butter">Peanut Butter</li>
 </ul>
 
 </div>
 
-<div class="order-card">
+</section>
+
+<section id="ordering" class="section-card" aria-labelledby="ordering-heading">
+  <h2 id="ordering-heading">Ordering &amp; Pickup</h2>
+  <p>Order on Facebook Marketplace, then send a message to confirm your pickup time. I bake fresh, so please give at least 24 hours advance notice for orders.</p>
+  <ul>
+    <li>Pickup location: South Saint Paul, MN</li>
+    <li>Payment: Cash, Venmo, or Facebook Pay</li>
+  </ul>
+
+  <div class="order-card">
 
     <div class="order-header">
         <h3>Cookies</h3>
@@ -631,19 +692,17 @@ Cookie Menu
     </a>
 
     <div class="order-logistics">
-        <span>📍 South Saint Paul</span>
-        <span>💳 Cash or Venmo</span>
+        <span>📍 Local Pickup - South Saint Paul</span>
     </div>
 
-</div>
-
+</div>f
 </section>
 
 <!-- ======================
 Reviews
 ======================= -->
 
-<section class="section-card" aria-labelledby="reviews-heading">
+<section id="reviews" class="section-card" aria-labelledby="reviews-heading">
 
 <h2 id="reviews-heading" style="text-align:center;">
 Customer Reviews
@@ -657,6 +716,12 @@ alt="Customer reviews showing positive feedback about Made by Mandy cookies. Wor
 
 </div>
 
+</section>
+
+<section id="about" class="section-card" aria-labelledby="about-heading">
+  <h2 id="about-heading">About Made by Mandy</h2>
+  <p>Made by Mandy is a cottage bakery in South Saint Paul Minnesota specializing in small-batch sourdough cookies and baked goods. Everything is made from scratch using high quality ingredients and baked to order to ensure every batch is fresh.</p>
+  <p>Whether you're treating yourself or bringing a box to share, everyday is a good day for cookies!</p>
 </section>
 
 </main>
@@ -675,63 +740,52 @@ alt="Customer reviews showing positive feedback about Made by Mandy cookies. Wor
        class="facebook-tag">
        Facebook
     </a>
-    <div class="crypto-tipjar">
-
-        <span class="tipjar-label">Crypto tip jar</span>
-    
-        <!-- Copy buttons -->
-        <button class="tip-btn btc" data-address="bc1qcmtu4t3evduw6dcj8x75xmk7ma6dkg67zmh3gf">
-            Copy BTC Address
-        </button>
-    
-        <button class="tip-btn eth" data-address="0x19Bd0A22FF07d202A7f5bcc9CdEB554C5e709c5b">
-            Copy ETH Address
-        </button>
-    
-        <!-- Optional direct donate buttons -->
-        <a href="bitcoin:bc1qcmtu4t3evduw6dcj8x75xmk7ma6dkg67zmh3gf"
-           class="tip-btn direct-donate btc-donate">
-            Donate BTC
-        </a>
-    
-        <a href="ethereum:0x19Bd0A22FF07d202A7f5bcc9CdEB554C5e709c5b"
-           class="tip-btn direct-donate eth-donate">
-            Donate ETH
-        </a>
-    
-    </div>
-    
-    <!-- Toast popup container -->
-    <div id="crypto-toast" class="crypto-toast">Copied to clipboard!</div>
-
-<!-- Toast popup container -->
-<div id="crypto-toast" class="crypto-toast">Copied to clipboard!</div>
+</div>
+</div>
 </footer>
+
+<a
+  href="https://www.facebook.com/marketplace/item/1448606079940652"
+  class="fixed-order-button order-button"
+  target="_blank"
+  rel="noopener"
+>
+  Order now
+</a>
+
+<!-- Structured data for SEO (LocalBusiness) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Bakery",
+  "name": "Made by Mandy",
+  "url": "https://madebymandymn.com",
+  "logo": "https://i.imgur.com/Ob90RLH.jpg",
+  "image": "https://i.imgur.com/Ob90RLH.jpg",
+  "description": "Fresh sourdough cookies baked to order in South Saint Paul, Minnesota. Small batch, made from scratch.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "South Saint Paul",
+    "addressRegion": "MN",
+    "postalCode": "55075",
+    "addressCountry": "US"
+  },
+    "review": {
+    "@type": "Review",
+    "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": 4,
+        "bestRating": 5
+    },
+  "sameAs": [
+    "https://www.facebook.com/MadeByMandyMinnesota"
+  ],
+  "priceRange": "$$"
+}
+</script>
 
 <script>
 document.getElementById("year").textContent = new Date().getFullYear();
-
-const toast = document.getElementById("crypto-toast");
-
-// Copy buttons with toast
-document.querySelectorAll(".tip-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-
-        // Only copy addresses from buttons with data-address
-        if(btn.dataset.address){
-            navigator.clipboard.writeText(btn.dataset.address);
-            toast.textContent = "Copied to clipboard!";
-            toast.classList.add("show");
-            setTimeout(() => toast.classList.remove("show"), 1500);
-        }
-    });
-});
-
-// Optional: show donate buttons on mobile only (redundant if using CSS media query)
-const isMobile = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
-if(!isMobile){
-    document.querySelectorAll(".tip-btn.direct-donate").forEach(btn => btn.style.display="none");
-}
 </script>
 
 </body>
