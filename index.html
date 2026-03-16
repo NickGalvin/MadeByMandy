@@ -177,6 +177,27 @@ html {
     text-shadow: 0 4px 12px rgba(155,111,211,0.25);
 }
 
+@media (max-width: 640px) {
+    .top-nav {
+        padding: 0.75rem 1rem;
+    }
+
+    .top-nav-list {
+        gap: 0.8rem;
+    }
+
+    .top-nav-list a {
+        font-size: 0.9rem;
+        padding: 0.5rem 0.7rem;
+    }
+
+    .top-nav-list a::after {
+        left: 0;
+        right: 0;
+        height: 2px;
+    }
+}
+
 
 body{
     margin:0;
@@ -487,9 +508,39 @@ Ordering & Pickup
 }
 
 
+#ordering{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
 #ordering p{
-    margin-left: 100px;
-    margin-right: 100px;
+    max-width: 640px;
+    margin: 0 auto 0;
+    line-height: 1.55;
+
+    /* modern balanced wrapping for better readability */
+    text-wrap: balance;
+    text-align: center;
+    /* fallbacks */
+    overflow-wrap: break-word;
+    word-break: normal;
+}
+
+#ordering .ordering-info{
+    max-width: 520px;
+    width: 100%;
+}
+
+@media (min-width: 900px) {
+    #ordering p{
+        max-width: 560px;
+    }
+
+    #ordering .ordering-info{
+        max-width: 520px;
+    }
 }
 
 /* =========================
@@ -717,7 +768,7 @@ header h1{
 
 <h1>Made by Mandy</h1>
 
-<p>Home baker based in South Saint Paul, MN ✨</p>
+<p>Home baker based in South Saint Paul, MN</p>
 <p>Creating delicious sourdough recipes and classic baked goods made from scratch.</p>
 <p>Small batch and crafted with care.</p>
 
@@ -794,11 +845,12 @@ Cookie Menu
 <section id="ordering" class="section-card" aria-labelledby="ordering-heading">
   <h2 id="ordering-heading">Ordering &amp; Pickup</h2>
   <p>Order on Facebook Marketplace, then send a message to confirm your pickup time.</p>
+  <p>Payment is due at the time of the order.</p>
   <p>⏱️ Everything is baked fresh, so please give at least 24 hours advance notice for orders.</p>
 
   <ul class="ordering-info" aria-label="Ordering details">
     <li><span class="emoji" aria-hidden="true">📍</span> <span class="ordering-label">Pickup:</span> South Saint Paul, MN</li>
-    <li><span class="emoji" aria-hidden="true">💳</span> <span class="ordering-label">Payment:</span> Cash or Venmo at time of order</li>
+    <li><span class="emoji" aria-hidden="true">💳</span> <span class="ordering-label">Payment:</span> Cash or Venmo</li>
   </ul>
 
   <!--
