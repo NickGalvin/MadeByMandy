@@ -8,22 +8,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- SEO -->
-<meta name="description" content="Made by Mandy MN – Fresh homemade sourdough cookies baked to order in South Saint Paul, Minnesota. Small batch sourdough cookies with soft centers and crisp edges.">
-<meta name="author" content="Made by Mandy MN">
+<meta name="description" content="Made by Mandy MN – Fresh homemade sourdough cookies baked fresh to order in South Saint Paul, Minnesota. Small batch sourdough cookies with soft centers and crisp edges.">
+<meta name="author" content="Nick Galvin, Mandy Galvin">
 
 <!-- Open Graph (Facebook / Messenger) -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Made by Mandy Sourdough Cookies">
 <meta property="og:description" content="Fresh baked sourdough cookies made from scratch in South Saint Paul, MN. Small batch and crafted with care.">
 <meta property="og:url" content="https://madebymandymn.com">
-<meta property="og:site_name" content="Made by Mandy">
-
+<meta property="og:site_name" content="Made by Mandy MN">
 <meta property="og:image" content="https://i.imgur.com/Ob90RLH.jpg">
+<meta property="og:image:secure_url" content="https://i.imgur.com/Ob90RLH.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:alt" content="Fresh sourdough cookies on a plate">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.imgur.com/Ob90RLH.jpg">
+<meta name="twitter:image:alt" content="Fresh sourdough cookies on a plate">
+<meta name="twitter:site" content="@MadeByMandyMN">
 <meta name="twitter:title" content="Made by Mandy Cookies">
 <meta name="twitter:description" content="Fresh baked sourdough cookies from scratch in South Saint Paul, MN. Small batch and crafted with care.">
 <meta name="twitter:image" content="https://i.imgur.com/Ob90RLH.jpg">
@@ -222,8 +228,8 @@ main{
 .section-card{
     position:relative;
     border-radius:14px;
-    padding:30px 22px;
-    margin:30px auto;
+    padding:24px 18px;
+    margin:22px auto;
     max-width:650px;
 
     background:
@@ -281,7 +287,7 @@ header{
     backdrop-filter: blur(12px);
     border: 1px solid rgba(0,0,0,0.10);
     border-radius: 14px;
-    padding: 30px 22px;
+    padding: 24px 18px;
     box-shadow: inset 0 0 18px rgba(0,0,0,0.06), 0 12px 28px rgba(0,0,0,0.14);
 }
 
@@ -317,7 +323,7 @@ Menu
 }
 
 section.section-card h2 {
-    margin: 0 0 18px;
+    margin: 0;
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
     font-size: 2.1rem;
@@ -396,7 +402,7 @@ Order Button
 Cookies
 ========================= */
 .cookie-section-description p{
-    margin:14px 14px 18px;
+    margin:12px 14px 14px;
     font-size:16px;
     line-height:1.35;
 
@@ -457,7 +463,7 @@ Coming Soon
 ========================= */
 
 .coming-soon-section{
-    margin-top:28px;
+    margin-top:20px;
     text-align:center;
 }
 
@@ -528,9 +534,74 @@ Ordering & Pickup
     word-break: normal;
 }
 
-#ordering .ordering-info{
-    max-width: 520px;
+#ordering .ordering-info,
+#ordering .ordering-steps{
+    max-width: 480px;
     width: 100%;
+}
+
+.ordering-steps{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 12px;
+    background: rgba(255,255,255,0.74);
+    border: 1px solid rgba(0,0,0,0.12);
+    border-radius: 14px;
+    padding: 18px 18px 14px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+}
+
+.ordering-steps li{
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.88);
+    border: 1px solid rgba(0,0,0,0.08);
+}
+
+.ordering-steps .step-number{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    background: rgba(155,111,211,0.18);
+    color: rgba(40,25,10,0.9);
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.ordering-steps .step-emoji{
+    font-size: 1.4rem;
+    line-height: 1;
+}
+
+.ordering-steps .step-text{
+    text-align: center;
+
+    /* balanced wrapping for cleaner lines */
+    text-wrap: balance;
+    overflow-wrap: break-word;
+    word-break: normal;
+}
+
+.ordering-steps strong{
+    display: block;
+    font-weight: 700;
+    color: var(--brand-purple);
+}
+
+.ordering-note{
+    margin-top: 16px;
+    font-size: 0.95rem;
+    color: rgba(0,0,0,0.7);
+    text-align: center;
 }
 
 @media (min-width: 900px) {
@@ -680,7 +751,7 @@ header h1{
     background:linear-gradient(#fffdf7,#f4edff);
 
     max-width:250px;
-    margin:16px auto;
+    margin: auto;
 
     padding:14px 16px;
 
@@ -844,25 +915,24 @@ Cookie Menu
 
 <section id="ordering" class="section-card" aria-labelledby="ordering-heading">
   <h2 id="ordering-heading">Ordering &amp; Pickup</h2>
-  <p>Order on Facebook Marketplace, then send a message to confirm your pickup time.</p>
-  <p>Payment is due at the time of the order.</p>
-  <p>⏱️ Everything is baked fresh, so please give at least 24 hours advance notice for orders.</p>
 
-  <ul class="ordering-info" aria-label="Ordering details">
-    <li><span class="emoji" aria-hidden="true">📍</span> <span class="ordering-label">Pickup:</span> South Saint Paul, MN</li>
-    <li><span class="emoji" aria-hidden="true">💳</span> <span class="ordering-label">Payment:</span> Cash or Venmo</li>
-  </ul>
-
-  <!--
-  <div class="map-embed" aria-label="Map showing rough pickup location near South Saint Paul, MN">
-    <iframe
-      src="https://www.google.com/maps?q=Walgreens%20Cahill&output=embed&mapmode=view"
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-      title="Map: Highway 52 & 494, South Saint Paul, MN">
-    </iframe>
-  </div>
--->
+  <ol class="ordering-steps" aria-label="How to order">
+    <li>
+      <span class="step-number" aria-hidden="true">1</span>
+      <span class="step-emoji" aria-hidden="true">🛒</span>
+      <span class="step-text"><strong>Click “Order Now”</strong> to open the Facebook Marketplace listing.</span>
+    </li>
+    <li>
+      <span class="step-number" aria-hidden="true">2</span>
+      <span class="step-emoji" aria-hidden="true">💬</span>
+      <span class="step-text"><strong>Send a message</strong> through the listing with what you'd like to order.</span>
+    </li>
+    <li>
+      <span class="step-number" aria-hidden="true">3</span>
+      <span class="step-emoji" aria-hidden="true">💳📍</span>
+      <span class="step-text"><strong>Confirm payment & pickup</strong> time + location in the chat.</span>
+    </li>
+  </ol>
 
   <div class="order-card">
 
@@ -886,6 +956,20 @@ Cookie Menu
     </div>
 
 </div>
+
+  <p class="ordering-note">⏱️ Everything is baked fresh, so please give at least 24 hours advance notice for orders.</p>
+
+  <!--
+  <div class="map-embed" aria-label="Map showing rough pickup location near South Saint Paul, MN">
+    <iframe
+      src="https://www.google.com/maps?q=Walgreens%20Cahill&output=embed&mapmode=view"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Map: Highway 52 & 494, South Saint Paul, MN">
+    </iframe>
+  </div>
+-->
+
 </section>
 
 <!-- ======================
