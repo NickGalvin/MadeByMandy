@@ -98,6 +98,19 @@ html {
     box-sizing:border-box;
 }
 
+/* Visually hidden but accessible to screen readers */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+}
+
 /* Skip link for keyboard users */
 .skip-link {
     position: absolute;
@@ -263,7 +276,7 @@ main{
     top:-6px;
 
     background:
-        radial-gradient(circle at 10px 10px, transparent 8px, #efe2c4 9px) repeat-x;
+        radial-gradient(circle at 10px 14px, transparent 8px, #efe2c4 9px) repeat-x;
 
     background-size:22px 14px;
 }
@@ -806,8 +819,82 @@ header h1{
     color:#444;
 }
 
+/* Info tooltip */
+.info-tip {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    vertical-align: text-bottom;
+    margin-left: 5px;
+    line-height: 1;
+}
+
+.info-tip-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--brand-purple);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 1;
+    cursor: default;
+    user-select: none;
+}
+
+.info-tip-icon:focus {
+    outline: 2px solid var(--brand-purple);
+    outline-offset: 2px;
+}
+
+.info-tip-bubble {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    max-width: 220px;
+    background: #3b2a6e;
+    color: #fff;
+    font-size: 12.5px;
+    line-height: 1.4;
+    padding: 7px 10px;
+    border-radius: 8px;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.info-tip-bubble::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: #3b2a6e;
+}
+
+.info-tip:hover .info-tip-bubble,
+.info-tip-icon:focus + .info-tip-bubble {
+    display: block;
+}
+
+.preferred-loc {
+    margin: 16px 0 4px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: rgba(0,0,0,0.55);
+}
+
 .map-embed{
-    margin: 18px auto 8px;
+    margin: 0 auto 8px;
     max-width: 100%;
     border-radius: 12px;
     overflow: hidden;
@@ -815,6 +902,7 @@ header h1{
 }
 
 .map-embed iframe{
+    display: block;
     width: 100%;
     height: 260px;
     border: 0;
@@ -861,7 +949,7 @@ header h1{
     </a>
 
     <div class="order-logistics">
-        <span>📍 Local Pickup - South Saint Paul</span>
+        <span><span aria-hidden="true">📍</span> Local Pickup - South Saint Paul</span>
     </div>
 
 </div>
@@ -896,6 +984,16 @@ Cookie Menu
 
     </div>
 
+    <div class="cookie-card">
+
+    <img
+    src="https://i.imgur.com/rl1dfab.jpeg"
+    alt="Fresh baked sourdough sugar cookies">
+
+    <h3>Sourdough Sugar</h3>
+
+    </div>
+
 </div>
 
 <div class="coming-soon-section">
@@ -904,7 +1002,6 @@ Cookie Menu
 
 <ul class="coming-soon-list" aria-label="List of cookie flavors coming soon">
 <li class="coming-soon-list-item">Chocolate Chocolate Chip</li>
-<li class="coming-soon-list-item">Sugar</li>
 <li class="coming-soon-list-item">M&amp;M</li>
 <li class="coming-soon-list-item">Peanut Butter</li>
 </ul>
@@ -930,7 +1027,7 @@ Cookie Menu
     <li>
       <span class="step-number" aria-hidden="true">3</span>
       <span class="step-emoji" aria-hidden="true">💳📍</span>
-      <span class="step-text"><strong>Confirm payment & pickup</strong> time + location in the chat.</span>
+      <span class="step-text"><strong>Confirm payment & pickup</strong> time + location in the chat.<span class="info-tip"><i class="info-tip-icon" tabindex="0" role="img" aria-label="Note: everything is baked fresh to order, please give at least 24 hours advance notice">i</i><span class="info-tip-bubble" aria-hidden="true">Everything is baked fresh to order — please give at least 24 hours advance notice.</span></span></span>
     </li>
   </ol>
 
@@ -952,23 +1049,20 @@ Cookie Menu
     </a>
 
     <div class="order-logistics">
-        <span>📍 Local Pickup - South Saint Paul</span>
+        <span><span aria-hidden="true">📍</span> Local Pickup - South Saint Paul</span>
     </div>
 
 </div>
 
-  <p class="ordering-note">⏱️ Everything is baked fresh, so please give at least 24 hours advance notice for orders.</p>
-
-  <!--
-  <div class="map-embed" aria-label="Map showing rough pickup location near South Saint Paul, MN">
+  <p class="preferred-loc">Preferred Pickup Location <span class="sr-only">Walgreens on Upper 55th &amp; Cahill Ave, Inver Grove Heights</span></p>
+  <div class="map-embed">
     <iframe
-      src="https://www.google.com/maps?q=Walgreens%20Cahill&output=embed&mapmode=view"
+      src="https://www.google.com/maps?q=Walgreens,5557+Cahill+Ave,Inver+Grove+Heights,MN+55076&output=embed&z=12"
       loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"
-      title="Map: Highway 52 & 494, South Saint Paul, MN">
+      title="Interactive map: Walgreens at Upper 55th &amp; Cahill Ave, Inver Grove Heights, MN. Use the link above to open in Google Maps.">
     </iframe>
   </div>
--->
 
 </section>
 
@@ -987,32 +1081,32 @@ Customer Reviews
 <div class="reviews-grid">
 
     <div class="review-card">
-        <div class="review-rating">★★★★★</div>
+        <div class="review-rating" aria-label="5 out of 5 stars">★★★★★</div>
         <p class="review-description">Words can't describe how good these cookies are, 100000/10 would recommend </p>
     </div>
 
     <div class="review-card">
-        <div class="review-rating">★★★★★</div>
+        <div class="review-rating" aria-label="5 out of 5 stars">★★★★★</div>
         <p class="review-description">Mandy's communication is top-tier, but her cookies are out of this world. I highly recommend!! They look exactly like the photo!</p>
     </div>
 
     <div class="review-card">
-        <div class="review-rating">★★★★★</div>
+        <div class="review-rating" aria-label="5 out of 5 stars">★★★★★</div>
         <p class="review-description">Hands down the best chocolate chip cookie I’ve ever had. So soft, perfectly chewy, and the chip-to-dough ratio is absolutely spot on. Every bite is perfect, thank you Mandy!</p>
     </div>
 
     <div class="review-card">
-        <div class="review-rating">★★★★★</div>
+        <div class="review-rating" aria-label="5 out of 5 stars">★★★★★</div>
         <p class="review-description">Mandy’s homemade sourdough cookies are amazing! She now has a customer for life. </p>
     </div>
 
     <div class="review-card">
-        <div class="review-rating">★★★★★</div>
+        <div class="review-rating" aria-label="5 out of 5 stars">★★★★★</div>
         <p class="review-description">Wonderful transaction! Cookies were amazing and seller definitely was flexible for me. Will buy from again in a New York second! Highly recommended!</p>
     </div>
 
     <div class="review-card">
-        <div class="review-rating">★★★★★</div>
+        <div class="review-rating" aria-label="5 out of 5 stars">★★★★★</div>
         <p class="review-description">These are delicious!</p>
     </div>
 </div>
@@ -1020,7 +1114,8 @@ Customer Reviews
 <div style="text-align: center; margin-top: 30px;">
     <a href="https://www.facebook.com/marketplace/profile/1396247507/"
        target="_blank"
-       rel="noopener"
+       rel="noopener noreferrer"
+       aria-label="View all reviews on Facebook (opens in new tab)"
        class="facebook-reviews-link">
         View All Reviews on Facebook
     </a>
@@ -1030,10 +1125,12 @@ Customer Reviews
 
 </section>
 
-<section id="about" class="section-card" aria-labelledby="about-heading">
+<section id="about" class="section-card" aria-labelledby="about-heading" style="text-wrap: balance; text-align: center;">
   <h2 id="about-heading">About Made by Mandy</h2>
-  <p>Hi, my name is Mandy! I run a cottage bakery out of my home in South Saint Paul Minnesota specializing in small-batch sourdough cookies and other baked goods. Everything is made from scratch using high quality ingredients and baked to order to ensure every batch is fresh.</p>
-  <p>Whether you're treating yourself or bringing a box to share, everyday is a good day for cookies!</p>
+  <p>Hi, my name is Mandy! I run a registered cottage bakery out of my home in South Saint Paul, Minnesota, specializing in small-batch sourdough cookies and other scratch-made baked goods. Every order is baked fresh to order using high-quality ingredients.</p>
+  <p>What makes these cookies special? It all starts with a live sourdough starter. The long-fermented sourdough dough develops a rich, complex flavor and creates that signature chewy texture with soft centers and lightly crisp edges.</p>
+  <p>Proudly serving the South Saint Paul and greater Twin Cities metro area, Made by Mandy is your local Minnesota cottage bakery for handcrafted sourdough cookies made with love.</p>
+  <p>Whether you're treating yourself or bringing a box to share, every day is a good day for cookies!</p>
 </section>
 
 </main>
@@ -1048,7 +1145,8 @@ Customer Reviews
     Follow <strong>Made by Mandy</strong> on 
     <a href="https://facebook.com/MadeByMandyMinnesota"
        target="_blank"
-       rel="noopener"
+       rel="noopener noreferrer"
+       aria-label="Follow Made by Mandy on Facebook (opens in new tab)"
        class="facebook-tag">
        Facebook
     </a>
